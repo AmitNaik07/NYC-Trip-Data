@@ -8,7 +8,7 @@ import seaborn as sns
 import numpy as np
 import matplotlib.animation as animation
 
-green_list =pd.read_csv('/Users/amitnaik/Documents/CapitalOne/green_output.csv')
+green_list =pd.read_csv('/Users/Documents/green_output.csv')
 
 green_list['Pickup_dt'] = green_list.lpep_pickup_datetime.apply(lambda x:dt.datetime.strptime(x,"%Y-%m-%d %H:%M:%S"))
 green_list['Pickup_hour'] = green_list.Pickup_dt.apply(lambda x:x.hour)
@@ -19,12 +19,12 @@ table_list =green_list.pivot_table(index='Pickup_hour', values='Trip_distance',a
 
 table_list.columns = ['Hour','Mean Trip Distance','Median Trip Distance']
 table_list[['Mean Trip Distance','Median Trip Distance']].plot(ax=ax)
-print tabulate(table_list.values.tolist(),["Hour","Mean Trip distance","Median Trip Distance"])						        #printing tabular version of graph
+print tabulate(table_list.values.tolist(),["Hour","Mean Trip distance","Median Trip Distance"])						       					 #printing tabular version of graph
 																			        
 plt.title('Trip distance by pickup hour')
 plt.xlabel('Hours (24 hour format)')
 plt.ylabel('Distance (miles)')
-plt.xlim([0,23])																									        # 24 hour format
+plt.xlim([0,23])																				# 24 hour format
 plt.show()
 
 trips =green_list[(green_list.RateCodeID==2) | (green_list.RateCodeID==3)]													# 2 represents JFK while 3 represnts Newark airports
@@ -34,14 +34,14 @@ fare_amount =trips.Fare_amount.mean()
 print "Average fare amount for tips to and fro the airports are: $",fare_amount
 
 amt =trips.mean()
-#print(amt[16])																												# mean comes out to be approximately 1.68
+#print(amt[16])																					# mean comes out to be approximately 1.68
 print "Average mode of payment while going to and fro airports is cash."													# 2 refers to credit card mode of payment
 
 v_air =trips.Trip_distance
 v_nonair =green_list.loc[~green_list.index.isin(v_air), "Trip_distance"]													# taking the complement of v_air
 
 
-trips.Pickup_hour.value_counts(normalize=True).sort_index().plot()															# plotting hourly distribution
+trips.Pickup_hour.value_counts(normalize=True).sort_index().plot()														# plotting hourly distribution
 green_list.loc[~green_list.index.isin(v_air.index),'Pickup_hour'].value_counts(normalize=True).sort_index().plot()
 plt.xlabel('Hours (24 hours)')
 plt.ylabel('Trip count')
