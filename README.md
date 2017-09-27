@@ -5,6 +5,6 @@
 
 3. For each of the codes run as ‘python filename.py’. 
 	
-4. Run Q1.py first if data set is not already present.
+4. Run Dataset.py first if data set is not already present.
 
-5. For Q1.py I have commented the download csv file section since it is needed only once, after it is  stored in the local filesystem. We can then access the data by storing it as a Data Frame.
+5. For Dataset.py I have commented the download csv file section since it is needed only once, after it is  stored in the local filesystem. We can then access the data by storing it as a Data Frame.
