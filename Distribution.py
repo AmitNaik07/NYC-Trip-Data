@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import lognorm
 import numpy as np
 
-green_list =pd.read_csv('/Users/amitnaik/Documents/CapitalOne/green_output.csv')
+green_list =pd.read_csv('/Users/Documents/green_output.csv')
 											
 v = green_list.Trip_distance 																					# create a vector to contain Trip Distance
 
