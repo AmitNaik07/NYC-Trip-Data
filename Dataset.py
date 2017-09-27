@@ -19,6 +19,6 @@ with requests.Session() as s:
         for line in green_list:
             writer.writerow(line)																  #writing downloaded data line wise to local filesystem
 
-green_list =pd.read_csv('/Users/amitnaik/Documents/CapitalOne/green_output.csv') 
+green_list =pd.read_csv('Users/Documents/green_output.csv') 
 print "Number of rows loaded are: " , len(green_list.index)										  #printing number of rows
 print "Number of columns loaded are: " , len(green_list.columns)                                  #printing number of columns											 	
