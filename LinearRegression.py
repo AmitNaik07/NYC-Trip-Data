@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_predict	
 from sklearn.linear_model import LinearRegression
 
-green_list =pd.read_csv('/Users/amitnaik/Documents/CapitalOne/green_output.csv')
+green_list =pd.read_csv('/Users/Documents/green_output.csv')
 
 clean_RCID =green_list[~((green_list.RateCodeID>=1) & (green_list.RateCodeID<=6))].index                                    	# cleaning RateCodeID since 99 is an outlier 
 green_list.loc[clean_RCID, 'RateCodeID'] =2	
