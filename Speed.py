@@ -22,8 +22,8 @@ new_speed = green_list[(~(green_list.Speed.isnull())) | (green_list.Speed<100)]	
 '''  
 This part of code is used to find index of weeks ranging from 1-7, 8-14 and so on.
 
-green_list['Date'] =[d.day for d in green_list["Pickup_dt"]]                 												    #getting just the date
-one =pd.DataFrame()																												#creating empty data frames
+green_list['Date'] =[d.day for d in green_list["Pickup_dt"]]                 										  #getting just the date
+one =pd.DataFrame()																												                        #creating empty data frames
 one =green_list.loc[(green_list['Date']>=1) & (green_list["Date"]<8)]															#getting data frame for days 1-7
 two =pd.DataFrame()
 two =green_list.loc[(green_list['Date']>=8) & (green_list["Date"]<15)]
@@ -45,7 +45,7 @@ m4 =s4["Speed"].median()
 
 y =[m1,m2,m3,m4]
 x =[1,2,3,4]
-plt.scatter(x,y, label='skitscat', color='k', s=25, marker="o")																	#plotting speed as a function of hours
+plt.scatter(x,y, label='skitscat', color='k', s=25, marker="o")								#plotting speed as a function of hours
 plt.xlabel('Weeks')
 plt.ylabel('Speed (mph)')
 plt.title('Speed per Week')
